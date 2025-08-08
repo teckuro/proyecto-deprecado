@@ -8,16 +8,9 @@ import { DotaService } from './services/dota/dota.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InicioComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [DotaService],
-  bootstrap: [AppComponent]
+	declarations: [AppComponent, InicioComponent],
+	imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+	providers: [DotaService],
+	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
