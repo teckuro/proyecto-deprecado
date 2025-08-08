@@ -10,22 +10,24 @@ export class InicioComponent implements OnInit {
 	usuarioKuroko = 96704850;
 	usuarioFugaze = 107362562;
 	usuarioJaque = 133158617;
+	datos: any[] = [];
+	int: any;
 
 	constructor(private dotaService: DotaService) {}
 
 	ngOnInit(): void {
-		this.cargaInicial();
+		// this.cargaInicial();
 		this.obtenerUsuario();
 		this.obtenerInfoRanking();
+		this.obtenerHeroes();
 	}
 
 	cargaInicial() {
-		const request = {
-			usuarioId: 123,
-			fecha: new Date()
-		};
-
-				const respuesta = this.dotaService.pruebaObtenerData(request).toPromise();
+		debugger;
+		this.dotaService.pruebaObtenerData(this.usuarioKuroko).subscribe({
+			next: (res) => (this.datos = res),
+			error: (err) => console.error(err)
+		});
 	}
 
 	obtenerUsuario() {
@@ -37,5 +39,12 @@ export class InicioComponent implements OnInit {
 		const respuesta = this.dotaService
 			.obtenerInfoRanking(this.usuarioJaque)
 			.toPromise();
+	}
+
+	obtenerHeroes() {
+		this.dotaService.pruebaObtenerDataHeroes(this.usuarioKuroko).subscribe({
+			next: (res) => (this.datos = res),
+			error: (err) => console.error(err)
+		});
 	}
 }
