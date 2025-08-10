@@ -15,15 +15,15 @@
 }
 .card-initial {
 	display: grid;
+	background: #e0e0e0;
+	border-radius: 30px;
 }
 .card-initial-up {
 	grid-column: 1 / 1;
-	background: #e0e0e0;
 	position: relative;
 }
 .card-initial-down {
 	grid-column: 1 / -1;
-	background: #e0e0e0;
 	justify-content: center;
 	align-items: center;
 }
